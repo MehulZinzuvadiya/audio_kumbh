@@ -1,3 +1,4 @@
+import 'package:audio_kumbh/app/widgets/publisher_item_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,32 +52,9 @@ class _PublisherScreenState extends State<PublisherScreen> {
           ),
           itemCount: args.length,
           itemBuilder: (context, index) {
-            return Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Container(
-                    width: 70,
-                    child: Image.network(
-                      "${args[index].img}",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  width: 90,
-                  child: Text(
-                    "${args[index].name}",
-                    overflow: TextOverflow.visible,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.quicksand(),
-                  ),
-                ),
-              ],
+            return PublisherItem(
+              networkImage: "${args[index].img}",
+              publisherName: "${args[index].name}",
             );
           },
         ),

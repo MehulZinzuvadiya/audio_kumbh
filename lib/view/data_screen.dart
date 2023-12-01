@@ -54,41 +54,6 @@ class _DataScreenState extends State<DataScreen> {
                 bookImage: "${data1[index].img}",
                 audioBookName: "${data1[index].name}",
                 bookAuhorName: "${data1[index].author.name}");
-            // return Container(
-            //   margin: EdgeInsets.all(10),
-            //   child: Column(
-            //     children: [
-            //       ClipRRect(
-            //         borderRadius: BorderRadius.circular(6),
-            //         child: Image.network(
-            //           "${data1[index].img}",
-            //           fit: BoxFit.cover,
-            //         ),
-            //       ),
-            //       SizedBox(
-            //         height: 5,
-            //       ),
-            //       Container(
-            //         width: 90,
-            //         child: Text(
-            //           "${data1[index].name}",
-            //           overflow: TextOverflow.ellipsis,
-            //           style: GoogleFonts.quicksand(
-            //             fontWeight: FontWeight.bold,
-            //           ),
-            //         ),
-            //       ),
-            //       Container(
-            //         width: 90,
-            //         child: Text(
-            //           "${data1[index].author.name}",
-            //           overflow: TextOverflow.ellipsis,
-            //           style: GoogleFonts.quicksand(),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // );
           },
         ),
       ),

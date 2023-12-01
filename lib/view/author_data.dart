@@ -1,3 +1,4 @@
+import 'package:audio_kumbh/app/widgets/author_item_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,33 +52,9 @@ class _AuthorScreenState extends State<AuthorScreen> {
           ),
           itemCount: args.length,
           itemBuilder: (context, index) {
-            return Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Container(
-                    width: 70,
-                    child: Image.network(
-                      "${args[index].img}",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  width: 90,
-                  child: Text(
-                    "${args[index].name}",
-                    overflow: TextOverflow.visible,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.quicksand(fontWeight: FontWeight.w500),
-                  ),
-                ),
-              ],
-            );
+            return AuthorItem(
+                networkImage: "${args[index].img}",
+                authorName: "${args[index].name}");
           },
         ),
       ),
