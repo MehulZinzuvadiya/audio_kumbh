@@ -3,6 +3,8 @@ import 'package:audio_kumbh/model/audiokumbh_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../utils/dark_theme.dart';
+
 class HomeProvider extends ChangeNotifier {
   AudioModel? audioModel;
   bool isload = false;
@@ -19,6 +21,17 @@ class HomeProvider extends ChangeNotifier {
 
   void ChangeIndex(int index) {
     imgindex = index;
+    notifyListeners();
+  }
+
+  DarkThemePreference darkThemePreference = DarkThemePreference();
+  bool appdarkTheme = false;
+
+  bool get darkTheme => appdarkTheme;
+
+  set darkTheme(bool value) {
+    appdarkTheme = value;
+    darkThemePreference.setDarkTheme(value);
     notifyListeners();
   }
 
