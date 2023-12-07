@@ -1,14 +1,22 @@
 import 'package:audio_kumbh/Utils/api_helper.dart';
-import 'package:audio_kumbh/model/audiokumbh_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import '../utils/dark_theme.dart';
+import '../model/custom_audio_model.dart';
 
 class HomeProvider extends ChangeNotifier {
   AudioModel? audioModel;
   bool isload = false;
   int imgindex = 0;
+  ThemeMode currentTheme = ThemeMode.system;
+
+  Locale? _locale;
+
+  Locale? get locale => _locale;
+
+  void set(Locale locale) {
+    _locale = locale;
+    notifyListeners();
+  }
 
   Future<void> getAudioData() async {
     isload = true;
@@ -21,17 +29,6 @@ class HomeProvider extends ChangeNotifier {
 
   void ChangeIndex(int index) {
     imgindex = index;
-    notifyListeners();
-  }
-
-  DarkThemePreference darkThemePreference = DarkThemePreference();
-  bool appdarkTheme = false;
-
-  bool get darkTheme => appdarkTheme;
-
-  set darkTheme(bool value) {
-    appdarkTheme = value;
-    darkThemePreference.setDarkTheme(value);
     notifyListeners();
   }
 
@@ -64,4 +61,14 @@ class HomeProvider extends ChangeNotifier {
       colors: [Color(0xff75D8EA), Color(0xff4CA1AF)],
     ),
   ];
+
+  ThemeMode mythemeMode = ThemeMode.light;
+
+  get themeMode => mythemeMode;
+
+  toggleTheme(bool isDark) {
+    mythemeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+    print(themeMode);
+    notifyListeners();
+  }
 }

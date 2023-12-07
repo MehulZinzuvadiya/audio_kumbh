@@ -32,7 +32,7 @@ class AuthorItem extends StatelessWidget {
             maxLines: 2,
             textAlign: TextAlign.center,
             style: GoogleFonts.quicksand(
-              color: Color(0xff512A00),
+              // color: Color(0xff512A00),
               fontWeight: FontWeight.w500,
             ),
           ),

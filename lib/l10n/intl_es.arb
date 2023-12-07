@@ -1,0 +1,10 @@
+{
+  "@@locale": "es",
+  "searchHere": "Search Here",
+  "category": "Category",
+  "ourAuhors": "Our Auhors",
+  "Publisher": "Publisher",
+  "viewAll": "View All",
+  "settings": "settings",
+  "pageSettingsInputLanguage": "{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}"
+}

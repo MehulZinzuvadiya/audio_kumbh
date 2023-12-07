@@ -1,0 +1,11 @@
+{
+  "@@locale": "gu",
+  "searchHere": "અહીં શોધો",
+  "category": "શ્રેણી",
+  "ourAuhors": "અમારા લેખકો",
+  "Publisher": "પ્રકાશક",
+  "viewAll": "બધુ જુઓ",
+  "settings": "સેટિંગ્સ",
+  "pageSettingsInputLanguage": "{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}"
+
+}

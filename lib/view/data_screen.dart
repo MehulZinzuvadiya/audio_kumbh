@@ -19,7 +19,6 @@ class _DataScreenState extends State<DataScreen> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         scrolledUnderElevation: 0,
         elevation: 0,
         leading: IconButton(
@@ -28,7 +27,7 @@ class _DataScreenState extends State<DataScreen> {
           },
           icon: Icon(
             Icons.arrow_back_ios,
-            color: Color(0xff512A00),
+            // color: Color(0xff512A00),
             size: 18,
           ),
         ),
@@ -37,7 +36,7 @@ class _DataScreenState extends State<DataScreen> {
           style: GoogleFonts.quicksand(
             fontWeight: FontWeight.bold,
             fontSize: 18,
-            color: Color(0xff512A00),
+            // color: Color(0xff512A00),
           ),
         ),
         centerTitle: true,

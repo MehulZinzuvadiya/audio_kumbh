@@ -1,0 +1,11 @@
+{
+  "@@locale": "hi",
+  "searchHere": "यहां तलाश करो",
+  "category": "वर्ग",
+  "ourAuhors": "हमारे लेखक",
+  "Publisher": "प्रकाशक",
+  "viewAll": "सभी को देखें",
+  "settings": "सेटिंग",
+  "pageSettingsInputLanguage": "{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}"
+
+}

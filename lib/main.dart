@@ -1,5 +1,6 @@
+import 'package:audio_kumbh/constant/theme_constant.dart';
+import 'package:audio_kumbh/generated/l10n.dart';
 import 'package:audio_kumbh/provider/home_provider.dart';
-import 'package:audio_kumbh/utils/style.dart';
 import 'package:audio_kumbh/view/author_data.dart';
 import 'package:audio_kumbh/view/data_screen.dart';
 import 'package:audio_kumbh/view/home_screen.dart';
@@ -20,14 +21,25 @@ void main() {
       builder: (context, HomeProvider value, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: Styles.themeData(value.darkTheme, context),
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          // darkTheme: ThemeData(
+          //   appBarTheme: AppBarTheme(backgroundColor: Colors.red),
+          //   textTheme: TextTheme(
+          //     titleMedium: TextStyle(
+          //       color: Colors.white,
+          //     ),
+          //     bodyMedium: TextStyle(color: Colors.white),
+          //   ),
+          // ),
+          themeMode: value.themeMode,
           routes: {
             '/': (context) => SplashScreen(),
             '/home': (context) => HomeScreen(),
             '/data': (context) => DataScreen(),
             '/authors': (context) => AuthorScreen(),
             '/publisher': (context) => PublisherScreen(),
-            '/settings': (context) => SettingScreen(),
+            // '/settings': (context) => Settings(),
           },
         );
       },

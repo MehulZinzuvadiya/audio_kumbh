@@ -21,11 +21,11 @@ class _PublisherScreenState extends State<PublisherScreen> {
           style: GoogleFonts.quicksand(
             fontWeight: FontWeight.bold,
             fontSize: 18,
-            color: Color(0xff512A00),
+            // color: Color(0xff512A00),
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
@@ -34,7 +34,7 @@ class _PublisherScreenState extends State<PublisherScreen> {
           },
           icon: Icon(
             Icons.arrow_back_ios,
-            color: Color(0xff512A00),
+            // color: Color(0xff512A00),
             size: 18,
           ),
         ),
