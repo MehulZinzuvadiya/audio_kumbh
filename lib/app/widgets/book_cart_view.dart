@@ -6,7 +6,7 @@ class BookCartItem extends StatelessWidget {
   String audioBookName;
   String bookAuhorName;
 
-  BookCartItem({required this.bookImage, required this.audioBookName, required this.bookAuhorName});
+  BookCartItem({super.key, required this.bookImage, required this.audioBookName, required this.bookAuhorName});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class BookCartItem extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Container(

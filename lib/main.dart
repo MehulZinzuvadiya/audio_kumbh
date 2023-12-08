@@ -11,7 +11,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -56,11 +56,11 @@ class MyAppState extends State<MyApp> {
             ],
             locale: locale,
             routes: {
-              '/': (context) => SplashScreen(),
-              '/home': (context) => HomeScreen(),
-              '/data': (context) => DataScreen(),
-              '/authors': (context) => AuthorScreen(),
-              '/publisher': (context) => PublisherScreen(),
+              '/': (context) => const SplashScreen(),
+              '/home': (context) => const HomeScreen(),
+              '/data': (context) => const DataScreen(),
+              '/authors': (context) => const AuthorScreen(),
+              '/publisher': (context) => const PublisherScreen(),
               // '/settings': (context) => Settings(),
             },
           );

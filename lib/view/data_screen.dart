@@ -12,7 +12,7 @@ class DataScreen extends StatefulWidget {
 class _DataScreenState extends State<DataScreen> {
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as Map ?? {};
+    final args = ModalRoute.of(context)!.settings.arguments as Map;
     var data1 = args['data1'];
     var data2 = args['data2'];
 
@@ -25,25 +25,23 @@ class _DataScreenState extends State<DataScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
-            // color: Color(0xff512A00),
             size: 18,
           ),
         ),
         title: Text(
-          "${data2}",
+          data2,
           style: GoogleFonts.quicksand(
             fontWeight: FontWeight.bold,
             fontSize: 18,
-            // color: Color(0xff512A00),
           ),
         ),
         centerTitle: true,
       ),
       body: Flexible(
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisExtent: 250,
           ),

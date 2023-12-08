@@ -32,9 +32,8 @@ class _PublisherScreenState extends State<PublisherScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
-            // color: Color(0xff512A00),
             size: 18,
           ),
         ),
@@ -42,11 +41,11 @@ class _PublisherScreenState extends State<PublisherScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: GridView.builder(
           shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisExtent: 130,
           ),

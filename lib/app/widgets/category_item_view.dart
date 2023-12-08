@@ -8,22 +8,22 @@ class CategoryItem extends StatelessWidget {
   LinearGradient gradient;
 
   CategoryItem(
-      {required this.categoryName,
+      {super.key,
+      required this.categoryName,
       required this.categoryUseFor,
       required this.gradient});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-          gradient: gradient, borderRadius: BorderRadius.circular(10)),
-      padding: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(5),
+      decoration: BoxDecoration(gradient: gradient, borderRadius: BorderRadius.circular(10)),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 3,
           ),
           Column(
@@ -32,9 +32,7 @@ class CategoryItem extends StatelessWidget {
               Text(
                 categoryName,
                 style: GoogleFonts.quicksand(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14),
+                    color: Colors.white, fontWeight: FontWeight.w700, fontSize: 14),
               ),
               Container(
                 height: 1,
@@ -50,11 +48,10 @@ class CategoryItem extends StatelessWidget {
                 categoryUseFor,
                 style: GoogleFonts.poppins(color: Colors.white, fontSize: 10),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
-              FaIcon(FontAwesomeIcons.circleChevronRight,
-                  color: Colors.white, size: 15),
+              const FaIcon(FontAwesomeIcons.circleChevronRight, color: Colors.white, size: 15),
             ],
           ),
         ],

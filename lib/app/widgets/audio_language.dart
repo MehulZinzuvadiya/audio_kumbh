@@ -20,7 +20,7 @@ class LanguageContainer extends StatelessWidget {
 
     return Container(
       width: 90,
-      margin: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),

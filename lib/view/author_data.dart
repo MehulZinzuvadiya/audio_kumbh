@@ -32,7 +32,7 @@ class _AuthorScreenState extends State<AuthorScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             // color: Color(0xff512A00),
             size: 18,
@@ -42,19 +42,18 @@ class _AuthorScreenState extends State<AuthorScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: GridView.builder(
           shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisExtent: 130,
           ),
           itemCount: args.length,
           itemBuilder: (context, index) {
             return AuthorItem(
-                networkImage: "${args[index].img}",
-                authorName: "${args[index].name}");
+                networkImage: "${args[index].img}", authorName: "${args[index].name}");
           },
         ),
       ),

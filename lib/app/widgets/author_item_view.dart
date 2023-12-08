@@ -5,7 +5,7 @@ class AuthorItem extends StatelessWidget {
   String networkImage;
   String authorName;
 
-  AuthorItem({required this.networkImage, required this.authorName});
+  AuthorItem({super.key, required this.networkImage, required this.authorName});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class AuthorItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(50),
-          child: Container(
+          child: SizedBox(
             width: 70,
             child: Image.network(
               networkImage,
@@ -21,10 +21,10 @@ class AuthorItem extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
-        Container(
+        SizedBox(
           width: 70,
           child: Text(
             authorName,

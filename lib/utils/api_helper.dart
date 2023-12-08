@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
 import '../model/custom_audio_model.dart';
 
 class Apihelper {
@@ -18,7 +17,6 @@ class Apihelper {
         },
         body: jsonEncode({"useFor": "audiobook"}));
     var json = jsonDecode(response.body);
-    print(json);
     AudioModel audioModel = AudioModel.fromJson(json);
     return audioModel;
   }

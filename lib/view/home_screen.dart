@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../app/widgets/audio_language.dart';
 import '../generated/l10n.dart';
 import '../main.dart';
@@ -69,12 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: Card(
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.settings,
                   // color: Color(0xff512A00),
                 ),
                 title: Text(
-                  "${S.of(context).settings}",
+                  S.of(context).settings,
                   style: GoogleFonts.quicksand(
                     // color: Color(0xff512A00),
                     fontWeight: FontWeight.bold,
@@ -85,15 +86,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Container(
             height: 35,
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Color(0xff512A00).withOpacity(0.7),
+              color: const Color(0xff512A00).withOpacity(0.7),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
-                padding: EdgeInsets.all(5),
-                dropdownColor: Color(0xff512A00),
+                padding: const EdgeInsets.all(5),
+                dropdownColor: const Color(0xff512A00),
                 elevation: 0,
                 borderRadius: BorderRadius.circular(5),
                 value: homeProviderF!.lang,
@@ -101,23 +102,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
-                items: [
+                items: const [
                   DropdownMenuItem(
-                    child: Text('English'),
                     value: "es",
+                    child: Text('English'),
                   ),
                   DropdownMenuItem(
-                    child: Text('Hindi'),
                     value: "hi",
+                    child: Text('Hindi'),
                   ),
                   DropdownMenuItem(
-                    child: Text('Gujarati'),
                     value: "gu",
+                    child: Text('Gujarati'),
                   ),
                 ],
                 onChanged: (value) {
                   MyApp.of(context)?.setLocale(Locale.fromSubtags(languageCode: value!));
-
                   homeProviderF!.setLocal(value!);
                 },
               ),
@@ -128,10 +128,10 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0,
           scrolledUnderElevation: 0,
           flexibleSpace: Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 35,
                 ),
                 Container(
@@ -143,18 +143,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                         color: homeProviderT!.mythemeMode == ThemeMode.dark
-                            ? Color(0xffFFE2D2)
-                            : Color(0xff512A00).withOpacity(0.6),
+                            ? const Color(0xffFFE2D2)
+                            : const Color(0xff512A00).withOpacity(0.6),
                         width: 1),
                   ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.search,
                         // color: Color(0xff512A00),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       AppText(
@@ -165,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 12,
                 ),
                 SizedBox(
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Switch(
                     activeColor: Colors.black,
                     activeTrackColor: Colors.grey,
-                    inactiveThumbColor: Color(0xff512A00),
+                    inactiveThumbColor: const Color(0xff512A00),
                     inactiveTrackColor: Colors.white,
                     value: homeProviderT!.themeMode == ThemeMode.dark,
                     onChanged: (newValue) {
@@ -185,12 +185,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          actions: [],
+          actions: const [],
         ),
         bottomNavigationBar: BottomNavigationBar(
           iconSize: 16,
           type: BottomNavigationBarType.fixed,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: FaIcon(
                 FontAwesomeIcons.book,
@@ -249,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
                                   child: Image.network(
-                                    "${value.audioModel!.data.banner[index].img}",
+                                    value.audioModel!.data.banner[index].img,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -263,8 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             autoPlayCurve: Curves.linear,
                             autoPlayInterval: const Duration(seconds: 3),
                             onPageChanged: (index, reason) {
-                              print(index);
-                              value.ChangeIndex(index);
+                              value.changeIndex(index);
                             },
                           )),
                       const SizedBox(
@@ -285,8 +284,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ? darkColor
                                           : lightColor,
                                     ),
-                                    color:
-                                        e.key == value.imgindex ? Color(0xff512A00) : Colors.white,
+                                    color: e.key == value.imgindex
+                                        ? const Color(0xff512A00)
+                                        : Colors.white,
                                     shape: BoxShape.circle,
                                   ),
                                 ))
@@ -296,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 5,
                       ),
                       Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: AppText(
                           title: S.of(context).category,
                           fontSize: 18,
@@ -314,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemCount: value.audioModel!.data.category.length,
                           itemBuilder: (context, index) {
                             return CategoryItem(
-                              categoryName: "${value.audioModel!.data.category[index].name}",
+                              categoryName: value.audioModel!.data.category[index].name,
                               categoryUseFor:
                                   "${value.audioModel!.data.category[index].total} ${value.audioModel!.data.category[index].useFor}",
                               gradient: value.linearGradients[index],
@@ -335,7 +335,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemCount: value.audioModel!.data.language.length,
                           itemBuilder: (context, index) {
                             return LanguageContainer(
-                              languageName: "${value.audioModel!.data.language[index].name}",
+                              languageName: value.audioModel!.data.language[index].name,
                             );
                           },
                         ),
@@ -349,7 +349,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${S.of(context).ourAuhors}",
+                              S.of(context).ourAuhors,
                               style: GoogleFonts.quicksand(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
@@ -358,10 +358,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             TextButton(
                               onPressed: () {
                                 Navigator.pushNamed(context, '/authors', arguments: author);
-                                print(author);
                               },
                               child: Text(
-                                "${S.of(context).viewAll}",
+                                S.of(context).viewAll,
                                 style: GoogleFonts.quicksand(
                                     fontSize: 12,
                                     color: homeProviderT!.mythemeMode == ThemeMode.dark
@@ -398,10 +397,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   return Padding(
                                     padding: const EdgeInsets.all(5),
                                     child: AuthorItem(
-                                        networkImage:
-                                            "${value.audioModel!.data.section[index].author[authorIndex].img}",
-                                        authorName:
-                                            "${value.audioModel!.data.section[index].author[authorIndex].name}"),
+                                      networkImage: value
+                                          .audioModel!.data.section[index].author[authorIndex].img,
+                                      authorName: value
+                                          .audioModel!.data.section[index].author[authorIndex].name,
+                                    ),
                                   );
                                 },
                               ),
@@ -411,7 +411,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       ListView.builder(
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: value.audioModel!.data.section.length,
                         itemBuilder: (context, index) {
                           return Column(
@@ -439,8 +439,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       !value.audioModel!.data.section[index].isShow;
                                                 },
                                                 icon: value.audioModel!.data.section[index].isShow
-                                                    ? Icon(Icons.keyboard_arrow_down)
-                                                    : Icon(Icons.expand_less),
+                                                    ? const Icon(Icons.keyboard_arrow_down)
+                                                    : const Icon(Icons.expand_less),
                                               ),
                                             ),
                                             TextButton(
@@ -489,15 +489,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                         value.audioModel!.data.section[index].audioBook.length,
                                     itemBuilder: (context, audioIndex) {
                                       return Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: BookCartItem(
-                                            bookImage:
-                                                "${value.audioModel!.data.section[index].audioBook[audioIndex].img}",
-                                            audioBookName:
-                                                "${value.audioModel!.data.section[index].audioBook[audioIndex].name}",
-                                            bookAuhorName:
-                                                "${value.audioModel!.data.section[index].audioBook[audioIndex].author.name}"),
-                                      );
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: BookCartItem(
+                                            bookImage: value.audioModel!.data.section[index]
+                                                .audioBook[audioIndex].img,
+                                            audioBookName: value.audioModel!.data.section[index]
+                                                .audioBook[audioIndex].name,
+                                            bookAuhorName: value.audioModel!.data.section[index]
+                                                .audioBook[audioIndex].author.name,
+                                          ));
                                     },
                                   ),
                                 ),
@@ -512,7 +512,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${S.of(context).Publisher}",
+                              S.of(context).Publisher,
                               style: GoogleFonts.quicksand(
                                   fontSize: 16,
                                   // color: const Color(0xff512A00),
@@ -524,7 +524,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     arguments: publisherData);
                               },
                               child: Text(
-                                "${S.of(context).viewAll}",
+                                S.of(context).viewAll,
                                 style: GoogleFonts.quicksand(
                                     fontSize: 12,
                                     color: homeProviderT!.mythemeMode == ThemeMode.dark
@@ -558,10 +558,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 itemBuilder: (context, publisherIndex) {
                                   publisherData = value.audioModel!.data.section[index].publisher;
                                   return PublisherItem(
-                                      networkImage:
-                                          "${value.audioModel!.data.section[index].publisher[publisherIndex].img}",
-                                      publisherName:
-                                          "${value.audioModel!.data.section[index].publisher[publisherIndex].name}");
+                                      networkImage: value.audioModel!.data.section[index]
+                                          .publisher[publisherIndex].img,
+                                      publisherName: value.audioModel!.data.section[index]
+                                          .publisher[publisherIndex].name);
                                 },
                               ),
                             );
@@ -577,48 +577,98 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: GoogleFonts.quicksand(
                                   // color: const Color(0xff512A00),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 10),
+                                  fontSize: 12),
                             ),
                             Text(
                               "Version:3.0.7",
                               style: GoogleFonts.quicksand(
                                   // color: const Color(0xff512A00),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 8),
+                                  fontSize: 10),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            const SizedBox(
-                              width: 150,
+                            SizedBox(
+                              width: 200,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.facebook,
-                                    // color: Color(0xff512A00),
-                                    size: 15,
+                                  GestureDetector(
+                                    onTap: () async {
+                                      const url = "https://www.facebook.com/";
+                                      if (await canLaunchUrl(Uri.parse(url))) {
+                                        await launchUrl(Uri.parse(url));
+                                      } else {
+                                        throw 'could not launch $url';
+                                      }
+                                    },
+                                    child: const FaIcon(
+                                      FontAwesomeIcons.facebook,
+                                      // color: Color(0xff512A00),
+                                      size: 18,
+                                    ),
                                   ),
-                                  FaIcon(
-                                    FontAwesomeIcons.instagram,
-                                    // color: Color(0xff512A00),
-                                    size: 15,
+                                  GestureDetector(
+                                    onTap: () async {
+                                      const url = "https://www.instagram.com/";
+                                      if (await canLaunchUrl(Uri.parse(url))) {
+                                        await launchUrl(Uri.parse(url));
+                                      } else {
+                                        throw 'could not launch $url';
+                                      }
+                                    },
+                                    child: const FaIcon(
+                                      FontAwesomeIcons.instagram,
+                                      // color: Color(0xff512A00),
+                                      size: 18,
+                                    ),
                                   ),
-                                  FaIcon(
-                                    FontAwesomeIcons.telegram,
-                                    // color: Color(0xff512A00),
-                                    size: 15,
+                                  GestureDetector(
+                                    onTap: () async {
+                                      const url = "https://telegram.org/apps";
+                                      if (await canLaunchUrl(Uri.parse(url))) {
+                                        await launchUrl(Uri.parse(url));
+                                      } else {
+                                        throw 'could not launch $url';
+                                      }
+                                    },
+                                    child: const FaIcon(
+                                      FontAwesomeIcons.telegram,
+                                      // color: Color(0xff512A00),
+                                      size: 18,
+                                    ),
                                   ),
-                                  FaIcon(
-                                    FontAwesomeIcons.twitter,
-                                    // color: Color(0xff512A00),
-                                    size: 15,
+                                  GestureDetector(
+                                    onTap: () async {
+                                      const url = "https://twitter.com/";
+                                      if (await canLaunchUrl(Uri.parse(url))) {
+                                        await launchUrl(Uri.parse(url));
+                                      } else {
+                                        throw 'could not launch $url';
+                                      }
+                                    },
+                                    child: const FaIcon(
+                                      FontAwesomeIcons.twitter,
+                                      // color: Color(0xff512A00),
+                                      size: 18,
+                                    ),
                                   ),
-                                  FaIcon(
-                                    FontAwesomeIcons.youtube,
-                                    // color: Color(0xff512A00),
-                                    size: 15,
+                                  GestureDetector(
+                                    onTap: () async {
+                                      const url = "https://www.youtube.com/";
+                                      if (await canLaunchUrl(Uri.parse(url))) {
+                                        await launchUrl(Uri.parse(url));
+                                      } else {
+                                        throw 'could not launch $url';
+                                      }
+                                    },
+                                    child: const FaIcon(
+                                      FontAwesomeIcons.youtube,
+                                      // color: Color(0xff512A00),
+                                      size: 18,
+                                    ),
                                   ),
                                 ],
                               ),

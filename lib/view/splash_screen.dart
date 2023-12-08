@@ -12,10 +12,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacementNamed("/home");
     });
-    return SafeArea(
+    return const SafeArea(
         child: Scaffold(
       body: Center(
           child: FlutterLogo(

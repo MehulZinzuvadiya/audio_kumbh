@@ -6,12 +6,12 @@ const darkColor = Color(0xffFFE2D2);
 
 ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: Colors.white,
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: Colors.white,
   ),
   brightness: Brightness.light,
   primaryColor: lightColor,
-  iconTheme: IconThemeData(color: lightColor),
+  iconTheme: const IconThemeData(color: lightColor),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     selectedItemColor: lightColor,
     unselectedItemColor: lightColor.withOpacity(.80),
@@ -23,16 +23,16 @@ ThemeData lightTheme = ThemeData(
   ),
   textTheme: TextTheme(
     titleMedium: GoogleFonts.quicksand(
-      color: Color(0xff512A00),
+      color: const Color(0xff512A00),
       fontSize: 18,
       fontWeight: FontWeight.w600,
     ),
   ),
-  floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: lightColor),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: lightColor),
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
+              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0))),
           backgroundColor: MaterialStateProperty.all<Color>(lightColor))),
@@ -40,8 +40,8 @@ ThemeData lightTheme = ThemeData(
 
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
-  appBarTheme: AppBarTheme(backgroundColor: Colors.black),
-  iconTheme: IconThemeData(color: darkColor),
+  appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
+  iconTheme: const IconThemeData(color: darkColor),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     selectedItemColor: darkColor,
     unselectedItemColor: darkColor.withOpacity(.80),
@@ -69,7 +69,7 @@ ThemeData darkTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
+              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0))),
           backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
