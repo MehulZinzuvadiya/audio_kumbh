@@ -7,5 +7,6 @@
   "viewAll": "બધુ જુઓ",
   "settings": "સેટિંગ્સ",
   "Book": "પુસ્તક",
-  "pageSettingsInputLanguage": "{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}"
+  "changeTheme": "થીમ બદલો",
+  "changeLanguage": "ભાષા બદલો"
 }

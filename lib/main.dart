@@ -61,7 +61,6 @@ class MyAppState extends State<MyApp> {
               '/data': (context) => const DataScreen(),
               '/authors': (context) => const AuthorScreen(),
               '/publisher': (context) => const PublisherScreen(),
-              // '/settings': (context) => Settings(),
             },
           );
         },

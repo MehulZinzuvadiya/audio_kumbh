@@ -63,67 +63,76 @@ class _HomeScreenState extends State<HomeScreen> {
         key: _scaffoldKey,
         drawerEnableOpenDragGesture: false,
         drawer: Drawer(
-            child: Column(children: [
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, '/settings');
-            },
-            child: Card(
+            child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Column(children: [
+            const SizedBox(
+              height: 30,
+            ),
+            Card(
               child: ListTile(
-                leading: const Icon(
-                  Icons.settings,
-                  // color: Color(0xff512A00),
-                ),
-                title: Text(
-                  S.of(context).settings,
-                  style: GoogleFonts.quicksand(
-                    // color: Color(0xff512A00),
-                    fontWeight: FontWeight.bold,
+                title: Text(S.of(context).changeTheme),
+                trailing: SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: Switch(
+                    activeColor: Colors.black,
+                    activeTrackColor: Colors.grey,
+                    inactiveThumbColor: const Color(0xff512A00),
+                    inactiveTrackColor: Colors.white,
+                    value: homeProviderT!.themeMode == ThemeMode.dark,
+                    onChanged: (newValue) {
+                      homeProviderT!.toggleTheme(newValue);
+                    },
                   ),
                 ),
               ),
             ),
-          ),
-          Container(
-            height: 35,
-            margin: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: const Color(0xff512A00).withOpacity(0.7),
-            ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton(
-                padding: const EdgeInsets.all(5),
-                dropdownColor: const Color(0xff512A00),
-                elevation: 0,
-                borderRadius: BorderRadius.circular(5),
-                value: homeProviderF!.lang,
-                style: GoogleFonts.quicksand(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
+            Card(
+              child: ListTile(
+                title: Text(S.of(context).changeLanguage),
+                trailing: Container(
+                  height: 35,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: const Color(0xff512A00).withOpacity(0.7),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton(
+                      padding: const EdgeInsets.all(5),
+                      dropdownColor: const Color(0xff512A00),
+                      elevation: 0,
+                      borderRadius: BorderRadius.circular(5),
+                      value: homeProviderF!.lang,
+                      style: GoogleFonts.quicksand(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                      items: const [
+                        DropdownMenuItem(
+                          value: "es",
+                          child: Text('English'),
+                        ),
+                        DropdownMenuItem(
+                          value: "hi",
+                          child: Text('Hindi'),
+                        ),
+                        DropdownMenuItem(
+                          value: "gu",
+                          child: Text('Gujarati'),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        MyApp.of(context)?.setLocale(Locale.fromSubtags(languageCode: value!));
+                        homeProviderF!.setLocal(value!);
+                      },
+                    ),
+                  ),
                 ),
-                items: const [
-                  DropdownMenuItem(
-                    value: "es",
-                    child: Text('English'),
-                  ),
-                  DropdownMenuItem(
-                    value: "hi",
-                    child: Text('Hindi'),
-                  ),
-                  DropdownMenuItem(
-                    value: "gu",
-                    child: Text('Gujarati'),
-                  ),
-                ],
-                onChanged: (value) {
-                  MyApp.of(context)?.setLocale(Locale.fromSubtags(languageCode: value!));
-                  homeProviderF!.setLocal(value!);
-                },
               ),
             ),
-          ),
-        ])),
+          ]),
+        )),
         appBar: AppBar(
           elevation: 0,
           scrolledUnderElevation: 0,
@@ -132,13 +141,13 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 const SizedBox(
-                  width: 35,
+                  width: 45,
                 ),
                 Container(
                   padding: const EdgeInsets.all(8),
                   alignment: Alignment.center,
                   height: 40,
-                  width: MediaQuery.of(context).size.width * 0.7,
+                  width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
@@ -163,23 +172,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                     ],
-                  ),
-                ),
-                const SizedBox(
-                  width: 12,
-                ),
-                SizedBox(
-                  height: 40,
-                  width: 40,
-                  child: Switch(
-                    activeColor: Colors.black,
-                    activeTrackColor: Colors.grey,
-                    inactiveThumbColor: const Color(0xff512A00),
-                    inactiveTrackColor: Colors.white,
-                    value: homeProviderT!.themeMode == ThemeMode.dark,
-                    onChanged: (newValue) {
-                      homeProviderT!.toggleTheme(newValue);
-                    },
                   ),
                 ),
               ],
@@ -514,7 +506,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               S.of(context).Publisher,
                               style: GoogleFonts.quicksand(
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   // color: const Color(0xff512A00),
                                   fontWeight: FontWeight.bold),
                             ),

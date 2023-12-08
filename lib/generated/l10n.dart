@@ -120,19 +120,23 @@ class S {
     );
   }
 
-  /// `{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}`
-  String pageSettingsInputLanguage(Object locale) {
-    return Intl.select(
-      locale,
-      {
-        'hi': 'Hindi',
-        'gu': 'Gujrati',
-        'es': 'English',
-        'other': '-',
-      },
-      name: 'pageSettingsInputLanguage',
+  /// `changeTheme`
+  String get changeTheme {
+    return Intl.message(
+      'changeTheme',
+      name: 'changeTheme',
       desc: '',
-      args: [locale],
+      args: [],
+    );
+  }
+
+  /// `changeLanguage`
+  String get changeLanguage {
+    return Intl.message(
+      'changeLanguage',
+      name: 'changeLanguage',
+      desc: '',
+      args: [],
     );
   }
 }
