@@ -6,5 +6,6 @@
   "Publisher": "Publisher",
   "viewAll": "View All",
   "settings": "settings",
+  "Book": "Book",
   "pageSettingsInputLanguage": "{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}"
 }

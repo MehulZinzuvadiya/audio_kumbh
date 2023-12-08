@@ -13,6 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../app/widgets/audio_language.dart';
 import '../generated/l10n.dart';
+import '../main.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -55,7 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     homeProviderT = context.watch<HomeProvider>();
     homeProviderF = context.read<HomeProvider>();
-    // var t = AppLocalizations.of(context)!;
 
     return SafeArea(
       child: Scaffold(
@@ -74,12 +74,52 @@ class _HomeScreenState extends State<HomeScreen> {
                   // color: Color(0xff512A00),
                 ),
                 title: Text(
-                  "Settings",
+                  "${S.of(context).settings}",
                   style: GoogleFonts.quicksand(
                     // color: Color(0xff512A00),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+              ),
+            ),
+          ),
+          Container(
+            height: 35,
+            margin: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Color(0xff512A00).withOpacity(0.7),
+            ),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton(
+                padding: EdgeInsets.all(5),
+                dropdownColor: Color(0xff512A00),
+                elevation: 0,
+                borderRadius: BorderRadius.circular(5),
+                value: homeProviderF!.lang,
+                style: GoogleFonts.quicksand(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+                items: [
+                  DropdownMenuItem(
+                    child: Text('English'),
+                    value: "es",
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Hindi'),
+                    value: "hi",
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Gujarati'),
+                    value: "gu",
+                  ),
+                ],
+                onChanged: (value) {
+                  MyApp.of(context)?.setLocale(Locale.fromSubtags(languageCode: value!));
+
+                  homeProviderF!.setLocal(value!);
+                },
               ),
             ),
           ),
@@ -118,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 5,
                       ),
                       AppText(
-                        title: 'Search Here',
+                        title: S.of(context).searchHere,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
@@ -150,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: BottomNavigationBar(
           iconSize: 16,
           type: BottomNavigationBarType.fixed,
-          items: const [
+          items: [
             BottomNavigationBarItem(
               icon: FaIcon(
                 FontAwesomeIcons.book,
@@ -258,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: EdgeInsets.all(10),
                         child: AppText(
-                          title: AppStringConst.category,
+                          title: S.of(context).category,
                           fontSize: 18,
                           // fontColor: Color(0xff512A00),
                           fontWeight: FontWeight.bold,
@@ -303,33 +343,36 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "  Our Authors",
-                            style: GoogleFonts.quicksand(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/authors', arguments: author);
-                              print(author);
-                            },
-                            child: Text(
-                              "View All  ",
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${S.of(context).ourAuhors}",
                               style: GoogleFonts.quicksand(
-                                  fontSize: 12,
-                                  color: homeProviderT!.mythemeMode == ThemeMode.dark
-                                      ? darkColor
-                                      : lightColor.withOpacity(0.5),
-                                  // color: const Color(0xff512A00).withOpacity(0.5),
-                                  fontWeight: FontWeight.w600),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
-                          )
-                        ],
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/authors', arguments: author);
+                                print(author);
+                              },
+                              child: Text(
+                                "${S.of(context).viewAll}",
+                                style: GoogleFonts.quicksand(
+                                    fontSize: 12,
+                                    color: homeProviderT!.mythemeMode == ThemeMode.dark
+                                        ? darkColor
+                                        : lightColor.withOpacity(0.5),
+                                    // color: const Color(0xff512A00).withOpacity(0.5),
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 5,
@@ -435,7 +478,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     value.audioModel!.data.section[index].isShow ? true : false,
                                 child: SizedBox(
                                   height: value.audioModel!.data.section[index].audioBook.isNotEmpty
-                                      ? 210
+                                      ? 220
                                       : 0,
                                   child: ListView.builder(
                                     shrinkWrap: true,
@@ -463,31 +506,35 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "  Publisher",
-                            style: GoogleFonts.quicksand(
-                                fontSize: 16,
-                                // color: const Color(0xff512A00),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/publisher', arguments: publisherData);
-                            },
-                            child: Text(
-                              "View All  ",
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${S.of(context).Publisher}",
                               style: GoogleFonts.quicksand(
-                                  fontSize: 12,
-                                  color: homeProviderT!.mythemeMode == ThemeMode.dark
-                                      ? darkColor
-                                      : lightColor.withOpacity(0.5),
-                                  fontWeight: FontWeight.w600),
+                                  fontSize: 16,
+                                  // color: const Color(0xff512A00),
+                                  fontWeight: FontWeight.bold),
                             ),
-                          )
-                        ],
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/publisher',
+                                    arguments: publisherData);
+                              },
+                              child: Text(
+                                "${S.of(context).viewAll}",
+                                style: GoogleFonts.quicksand(
+                                    fontSize: 12,
+                                    color: homeProviderT!.mythemeMode == ThemeMode.dark
+                                        ? darkColor
+                                        : lightColor.withOpacity(0.5),
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 5,

@@ -6,6 +6,6 @@
   "Publisher": "પ્રકાશક",
   "viewAll": "બધુ જુઓ",
   "settings": "સેટિંગ્સ",
+  "Book": "પુસ્તક",
   "pageSettingsInputLanguage": "{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}"
-
 }

@@ -49,6 +49,92 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Search Here`
+  String get searchHere {
+    return Intl.message(
+      'Search Here',
+      name: 'searchHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get category {
+    return Intl.message(
+      'Category',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our Auhors`
+  String get ourAuhors {
+    return Intl.message(
+      'Our Auhors',
+      name: 'ourAuhors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Publisher`
+  String get Publisher {
+    return Intl.message(
+      'Publisher',
+      name: 'Publisher',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View All`
+  String get viewAll {
+    return Intl.message(
+      'View All',
+      name: 'viewAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `settings`
+  String get settings {
+    return Intl.message(
+      'settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book`
+  String get Book {
+    return Intl.message(
+      'Book',
+      name: 'Book',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{locale, select, hi {Hindi} gu {Gujrati} es {English} other {-}}`
+  String pageSettingsInputLanguage(Object locale) {
+    return Intl.select(
+      locale,
+      {
+        'hi': 'Hindi',
+        'gu': 'Gujrati',
+        'es': 'English',
+        'other': '-',
+      },
+      name: 'pageSettingsInputLanguage',
+      desc: '',
+      args: [locale],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

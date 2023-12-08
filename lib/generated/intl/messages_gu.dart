@@ -20,6 +20,22 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'gu';
 
+  static String m0(locale) => "${Intl.select(locale, {
+            'hi': 'Hindi',
+            'gu': 'Gujrati',
+            'es': 'English',
+            'other': '-',
+          })}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Book": MessageLookupByLibrary.simpleMessage("પુસ્તક"),
+        "Publisher": MessageLookupByLibrary.simpleMessage("પ્રકાશક"),
+        "category": MessageLookupByLibrary.simpleMessage("શ્રેણી"),
+        "ourAuhors": MessageLookupByLibrary.simpleMessage("અમારા લેખકો"),
+        "pageSettingsInputLanguage": m0,
+        "searchHere": MessageLookupByLibrary.simpleMessage("અહીં શોધો"),
+        "settings": MessageLookupByLibrary.simpleMessage("સેટિંગ્સ"),
+        "viewAll": MessageLookupByLibrary.simpleMessage("બધુ જુઓ")
+      };
 }

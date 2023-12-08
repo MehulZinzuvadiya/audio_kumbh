@@ -82,7 +82,7 @@ class Section {
   List<AudioBook> audioBook;
   List<AuthorElement> author;
   List<Publisher> publisher;
-  bool isShow=true;
+  bool isShow = true;
 
   Section({
     required this.title,
@@ -117,8 +117,8 @@ class AudioBook {
   factory AudioBook.fromJson(Map<String, dynamic> json) => AudioBook(
         name: json["name"],
         author: AudioBookAuthor.fromJson(json["author"]),
-        img: json["img"], isHide: false,
-
+        img: json["img"],
+        isHide: false,
       );
 }
 

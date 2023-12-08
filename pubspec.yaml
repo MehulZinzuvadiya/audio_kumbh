@@ -44,6 +44,7 @@ dependencies:
   shared_preferences:
   intl: ^0.18.1
   flutter_localization: ^0.1.14
+  get:
 
 dev_dependencies:
   flutter_test:

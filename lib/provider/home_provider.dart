@@ -1,6 +1,9 @@
 import 'package:audio_kumbh/Utils/api_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import '../main.dart';
 import '../model/custom_audio_model.dart';
 
 class HomeProvider extends ChangeNotifier {
@@ -9,13 +12,15 @@ class HomeProvider extends ChangeNotifier {
   int imgindex = 0;
   ThemeMode currentTheme = ThemeMode.system;
 
-  Locale? _locale;
 
-  Locale? get locale => _locale;
 
-  void set(Locale locale) {
-    _locale = locale;
-    notifyListeners();
+  String lang = "es";
+
+
+
+  void setLocal(String val) {
+    lang = val;
+
   }
 
   Future<void> getAudioData() async {

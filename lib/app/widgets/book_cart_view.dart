@@ -6,10 +6,7 @@ class BookCartItem extends StatelessWidget {
   String audioBookName;
   String bookAuhorName;
 
-  BookCartItem(
-      {required this.bookImage,
-      required this.audioBookName,
-      required this.bookAuhorName});
+  BookCartItem({required this.bookImage, required this.audioBookName, required this.bookAuhorName});
 
   @override
   Widget build(BuildContext context) {
