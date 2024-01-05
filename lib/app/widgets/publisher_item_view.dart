@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PublisherItem extends StatelessWidget {
   String networkImage;
@@ -10,24 +11,19 @@ class PublisherItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(1),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: Container(
-              width: 70,
-              child: Image.network(
+          CircleAvatar(
+              radius: 35,
+              backgroundImage: NetworkImage(
                 networkImage,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 5,
+              )),
+           SizedBox(
+            height:0.5.h,
           ),
           Container(
-            width: 90,
+            width: 15.w,
             child: Text(
               publisherName,
               overflow: TextOverflow.visible,

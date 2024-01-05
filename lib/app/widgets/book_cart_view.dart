@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class BookCartItem extends StatelessWidget {
   String bookImage;
   String audioBookName;
   String bookAuhorName;
 
-  BookCartItem({super.key, required this.bookImage, required this.audioBookName, required this.bookAuhorName});
+  BookCartItem(
+      {super.key,
+      required this.bookImage,
+      required this.audioBookName,
+      required this.bookAuhorName});
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
@@ -22,11 +28,11 @@ class BookCartItem extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: 0.5.h,
         ),
         Container(
-          width: 90,
+          width: 20.w,
           child: Text(
             audioBookName,
             overflow: TextOverflow.ellipsis,
@@ -38,7 +44,7 @@ class BookCartItem extends StatelessWidget {
           ),
         ),
         Container(
-          width: 90,
+          width: 20.w,
           child: Text(
             bookAuhorName,
             overflow: TextOverflow.ellipsis,

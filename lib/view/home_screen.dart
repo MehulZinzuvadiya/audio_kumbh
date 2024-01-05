@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../app/widgets/audio_language.dart';
 import '../generated/l10n.dart';
@@ -66,15 +67,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Padding(
           padding: const EdgeInsets.all(5),
           child: Column(children: [
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: 3.h,
             ),
             Card(
               child: ListTile(
                 title: Text(S.of(context).changeTheme),
                 trailing: SizedBox(
-                  height: 40,
-                  width: 40,
+                  height: 4.h,
+                  width: 5.w,
                   child: Switch(
                     activeColor: Colors.black,
                     activeTrackColor: Colors.grey,
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListTile(
                 title: Text(S.of(context).changeLanguage),
                 trailing: Container(
-                  height: 35,
+                  height: 4.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: const Color(0xff512A00).withOpacity(0.7),
@@ -140,13 +141,13 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: const EdgeInsets.all(10),
             child: Row(
               children: [
-                const SizedBox(
-                  width: 45,
+                SizedBox(
+                  width: 12.w,
                 ),
                 Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: EdgeInsets.all(8),
                   alignment: Alignment.center,
-                  height: 40,
+                  height: 30.h,
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -163,12 +164,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         Icons.search,
                         // color: Color(0xff512A00),
                       ),
-                      const SizedBox(
-                        width: 5,
+                      SizedBox(
+                        width: 2.w,
                       ),
                       AppText(
                         title: S.of(context).searchHere,
-                        fontSize: 14,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ],
@@ -180,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: const [],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          iconSize: 16,
+          iconSize: 3.h,
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(
@@ -231,8 +232,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 0.5.h,
                       ),
                       CarouselSlider.builder(
                           itemCount: value.audioModel!.data.banner.length,
@@ -247,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                           options: CarouselOptions(
-                            height: 150,
+                            height: 20.h,
                             viewportFraction: 1,
                             autoPlay: true,
                             enableInfiniteScroll: true,
@@ -258,8 +259,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               value.changeIndex(index);
                             },
                           )),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -267,8 +268,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             .asMap()
                             .entries
                             .map((e) => Container(
-                                  height: 8,
-                                  width: 8,
+                                  height: 1.h,
+                                  width: 1.h,
                                   margin: const EdgeInsets.symmetric(horizontal: 5),
                                   decoration: BoxDecoration(
                                     border: Border.all(
@@ -284,20 +285,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ))
                             .toList(),
                       ),
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: AppText(
                           title: S.of(context).category,
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           // fontColor: Color(0xff512A00),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(
-                        height: 90,
+                        height: 15.h,
                         child: ListView.builder(
                           shrinkWrap: true,
                           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -314,11 +315,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 2.h,
                       ),
                       SizedBox(
-                        height: 50,
+                        height: 7.h,
                         child: ListView.builder(
                           shrinkWrap: true,
                           physics: const BouncingScrollPhysics(),
@@ -332,8 +333,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(10),
@@ -343,7 +344,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               S.of(context).ourAuhors,
                               style: GoogleFonts.quicksand(
-                                fontSize: 18,
+                                fontSize: 18.sp,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -354,22 +355,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Text(
                                 S.of(context).viewAll,
                                 style: GoogleFonts.quicksand(
-                                    fontSize: 12,
+                                    fontSize: 15.sp,
                                     color: homeProviderT!.mythemeMode == ThemeMode.dark
                                         ? darkColor
                                         : lightColor.withOpacity(0.5),
                                     // color: const Color(0xff512A00).withOpacity(0.5),
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w700),
                               ),
                             )
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 0.5.h,
                       ),
                       SizedBox(
-                        height: 140,
+                        height: 20.h,
                         child: ListView.builder(
                           shrinkWrap: true,
                           physics: const BouncingScrollPhysics(),
@@ -377,26 +378,23 @@ class _HomeScreenState extends State<HomeScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: value.audioModel!.data.section.length,
                           itemBuilder: (context, index) {
-                            return SizedBox(
-                              height: 200,
-                              child: ListView.builder(
-                                physics: const BouncingScrollPhysics(),
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: value.audioModel!.data.section[index].author.length,
-                                itemBuilder: (context, authorIndex) {
-                                  author = value.audioModel!.data.section[index].author;
-                                  return Padding(
-                                    padding: const EdgeInsets.all(5),
-                                    child: AuthorItem(
-                                      networkImage: value
-                                          .audioModel!.data.section[index].author[authorIndex].img,
-                                      authorName: value
-                                          .audioModel!.data.section[index].author[authorIndex].name,
-                                    ),
-                                  );
-                                },
-                              ),
+                            return ListView.builder(
+                              physics: const BouncingScrollPhysics(),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: value.audioModel!.data.section[index].author.length,
+                              itemBuilder: (context, authorIndex) {
+                                author = value.audioModel!.data.section[index].author;
+                                return Padding(
+                                  padding: const EdgeInsets.all(5),
+                                  child: AuthorItem(
+                                    networkImage: value
+                                        .audioModel!.data.section[index].author[authorIndex].img,
+                                    authorName: value
+                                        .audioModel!.data.section[index].author[authorIndex].name,
+                                  ),
+                                );
+                              },
                             );
                           },
                         ),
@@ -406,7 +404,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: value.audioModel!.data.section.length,
                         itemBuilder: (context, index) {
-                          return Column(
+                          return
+                            Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               value.audioModel!.data.section[index].audioBook.isNotEmpty
@@ -416,7 +415,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Text(
                                           "  ${value.audioModel!.data.section[index].title}",
                                           style: GoogleFonts.quicksand(
-                                            fontSize: 18,
+                                            fontSize: 18.sp,
                                             // color: const Color(0xff512A00),
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -424,7 +423,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Row(
                                           children: [
                                             SizedBox(
-                                              width: 30,
+                                              width: 10.w,
                                               child: IconButton(
                                                 onPressed: () {
                                                   value.audioModel!.data.section[index].isShow =
@@ -451,13 +450,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                               child: Text(
                                                 AppStringConst.viewAll,
                                                 style: GoogleFonts.quicksand(
-                                                    fontSize: 12,
+                                                    fontSize: 15.sp,
                                                     color:
                                                         homeProviderT!.mythemeMode == ThemeMode.dark
                                                             ? darkColor
                                                             : lightColor.withOpacity(0.5),
                                                     // color: const Color(0xff512A00).withOpacity(0.5),
-                                                    fontWeight: FontWeight.w600),
+                                                    fontWeight: FontWeight.w700),
                                               ),
                                             )
                                           ],
@@ -470,7 +469,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     value.audioModel!.data.section[index].isShow ? true : false,
                                 child: SizedBox(
                                   height: value.audioModel!.data.section[index].audioBook.isNotEmpty
-                                      ? 220
+                                      ? 30.h
                                       : 0,
                                   child: ListView.builder(
                                     shrinkWrap: true,
@@ -506,7 +505,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               S.of(context).Publisher,
                               style: GoogleFonts.quicksand(
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   // color: const Color(0xff512A00),
                                   fontWeight: FontWeight.bold),
                             ),
@@ -518,21 +517,21 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Text(
                                 S.of(context).viewAll,
                                 style: GoogleFonts.quicksand(
-                                    fontSize: 12,
+                                    fontSize: 15.sp,
                                     color: homeProviderT!.mythemeMode == ThemeMode.dark
                                         ? darkColor
                                         : lightColor.withOpacity(0.5),
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w700),
                               ),
                             )
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 0.1.h,
                       ),
                       SizedBox(
-                        height: 140,
+                        height: 18.h,
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
@@ -540,49 +539,48 @@ class _HomeScreenState extends State<HomeScreen> {
                           physics: const BouncingScrollPhysics(),
                           itemCount: value.audioModel!.data.section.length,
                           itemBuilder: (context, index) {
-                            return SizedBox(
-                              height: 200,
-                              child: ListView.builder(
-                                physics: const BouncingScrollPhysics(),
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: value.audioModel!.data.section[index].publisher.length,
-                                itemBuilder: (context, publisherIndex) {
-                                  publisherData = value.audioModel!.data.section[index].publisher;
-                                  return PublisherItem(
-                                      networkImage: value.audioModel!.data.section[index]
-                                          .publisher[publisherIndex].img,
-                                      publisherName: value.audioModel!.data.section[index]
-                                          .publisher[publisherIndex].name);
-                                },
-                              ),
+                            return ListView.builder(
+                              physics: const BouncingScrollPhysics(),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: value.audioModel!.data.section[index].publisher.length,
+                              itemBuilder: (context, publisherIndex) {
+                                publisherData = value.audioModel!.data.section[index].publisher;
+                                return PublisherItem(
+                                    networkImage: value.audioModel!.data.section[index]
+                                        .publisher[publisherIndex].img,
+                                    publisherName: value.audioModel!.data.section[index]
+                                        .publisher[publisherIndex].name);
+                              },
                             );
                           },
                         ),
+                      ),
+                      SizedBox(
+                        height: 3.h,
                       ),
                       Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "AUDIO KUMBH",
+                              "Audio Kumbh",
                               style: GoogleFonts.quicksand(
-                                  // color: const Color(0xff512A00),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12),
+                                  fontWeight: FontWeight.w600, fontSize: 14.sp),
+                            ),
+                            SizedBox(
+                              height: 0.1.h,
                             ),
                             Text(
                               "Version:3.0.7",
                               style: GoogleFonts.quicksand(
-                                  // color: const Color(0xff512A00),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10),
+                                  fontWeight: FontWeight.w500, fontSize: 12.sp),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             SizedBox(
-                              width: 200,
+                              width: 45.w,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -598,8 +596,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: const FaIcon(
                                       FontAwesomeIcons.facebook,
-                                      // color: Color(0xff512A00),
-                                      size: 18,
+                                      size: 16,
                                     ),
                                   ),
                                   GestureDetector(
@@ -613,8 +610,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: const FaIcon(
                                       FontAwesomeIcons.instagram,
-                                      // color: Color(0xff512A00),
-                                      size: 18,
+                                      size: 16,
                                     ),
                                   ),
                                   GestureDetector(
@@ -628,8 +624,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: const FaIcon(
                                       FontAwesomeIcons.telegram,
-                                      // color: Color(0xff512A00),
-                                      size: 18,
+                                      size: 16,
                                     ),
                                   ),
                                   GestureDetector(
@@ -643,8 +638,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: const FaIcon(
                                       FontAwesomeIcons.twitter,
-                                      // color: Color(0xff512A00),
-                                      size: 18,
+                                      size: 16,
                                     ),
                                   ),
                                   GestureDetector(
@@ -658,15 +652,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: const FaIcon(
                                       FontAwesomeIcons.youtube,
-                                      // color: Color(0xff512A00),
-                                      size: 18,
+                                      size: 16,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            const SizedBox(
-                              height: 80,
+                            SizedBox(
+                              height: 10.h,
                             )
                           ],
                         ),

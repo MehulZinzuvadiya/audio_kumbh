@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AuthorItem extends StatelessWidget {
   String networkImage;
@@ -11,28 +12,21 @@ class AuthorItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: SizedBox(
-            width: 70,
-            child: Image.network(
-              networkImage,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 5,
+        CircleAvatar(
+          radius: 35,
+          backgroundImage: NetworkImage(networkImage),
         ),
         SizedBox(
-          width: 70,
+          height: 0.5.h,
+        ),
+        SizedBox(
+          width: 14.w,
           child: Text(
             authorName,
             overflow: TextOverflow.visible,
             maxLines: 2,
             textAlign: TextAlign.center,
             style: GoogleFonts.quicksand(
-              // color: Color(0xff512A00),
               fontWeight: FontWeight.w500,
             ),
           ),
